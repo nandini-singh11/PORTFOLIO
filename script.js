@@ -1,9 +1,10 @@
 const typingText = document.getElementById("typing-text");
 const header = document.querySelector("header");
+const sections = document.querySelectorAll("section");  // Get all sections
 const words = [
-  { text: "Nandini Singh", className: "name", bgColor: "#f8bbd0" },  // Light Pink
-  { text: "Web Developer", className: "web", bgColor: "#bbdefb" },    // Light Blue
-  { text: "DevOps Learner", className: "devops", bgColor: "#c8e6c9" } // Light Green
+  { text: "Nandini Singh", className: "name", bgColor: "#f8bbd0", textColor: "#e91e63" },  // Light Pink
+  { text: "Web Developer", className: "web", bgColor: "#bbdefb", textColor: "#2196f3" },    // Light Blue
+  { text: "DevOps Learner", className: "devops", bgColor: "#c8e6c9", textColor: "#4caf50" } // Light Green
 ];
 
 let i = 0, j = 0, isDeleting = false;
@@ -15,6 +16,11 @@ function type() {
 
   // Change the header background color
   header.style.backgroundColor = current.bgColor;
+
+  // Change text color in all sections
+  sections.forEach(section => {
+    section.style.color = current.textColor;
+  });
 
   if (!isDeleting && j < current.text.length) {
     j++;
