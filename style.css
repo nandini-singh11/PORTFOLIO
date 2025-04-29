@@ -3,6 +3,7 @@ body {
   background-color: #f0f2f5;
   color: #333;
   margin: 40px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 header {
@@ -24,10 +25,47 @@ section {
 h2 {
   color: #3f51b5;
 }
+
 a {
   color: #3f51b5;
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
+}
+
+/* Dark Mode */
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark-mode section {
+  background-color: #1e1e1e;
+}
+
+/* Buttons */
+#darkModeToggle, #backToTop {
+  position: fixed;
+  right: 20px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 1000;
+}
+
+#darkModeToggle {
+  top: 20px;
+  background-color: #333;
+  color: white;
+}
+
+#backToTop {
+  bottom: 20px;
+  background-color: #3f51b5;
+  color: white;
+  display: none;
 }
