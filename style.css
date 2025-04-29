@@ -1,43 +1,38 @@
-/* Colored typing words */
-.name {
-  color: #e91e63; /* Pink */
-}
+const typingText = document.getElementById("typing-text");
+const header = document.querySelector("header");
+const sections = document.querySelectorAll("section");  // Get all sections
+const words = [
+  { text: "Nandini Singh", className: "name", bgColor: "#f8bbd0", textColor: "#e91e63" },  // Light Pink
+  { text: "Web Developer", className: "web", bgColor: "#bbdefb", textColor: "#2196f3" },    // Light Blue
+  { text: "DevOps Learner", className: "devops", bgColor: "#c8e6c9", textColor: "#4caf50" } // Light Green
+];
 
-.web {
-  color: #2196f3; /* Blue */
-}
+let i = 0, j = 0, isDeleting = false;
 
-.devops {
-  color: #4caf50; /* Green */
-}
+function type() {
+  const current = words[i];
+  const visibleText = current.text.substring(0, j);
+  typingText.innerHTML = `<span class="${current.className}">${visibleText}</span>`;
 
-/* Update the header */
-header {
-  background-color: #283593;
-  color: white;
-  text-align: center;
-  padding: 30px;
-  border-radius: 15px;
-  transition: background-color 0.3s ease;
-}
+  // Change the header background color
+  header.style.backgroundColor = current.bgColor;
 
-header p {
-  transition: color 0.3s ease;
-}
+  // Change text color in all sections
+  sections.forEach(section => {
+    section.style.color = current.textColor;
+  });
 
-/* Matching color changes for subtitles and descriptions */
-#about, #projects, #skills, #contact {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  if (!isDeleting && j < current.text.length) {
+    j++;
+    setTimeout(type, 100);
+  } else if (isDeleting && j > 0) {
+    j--;
+    setTimeout(type, 60);
+  } else {
+    isDeleting = !isDeleting;
+    if (!isDeleting) i = (i + 1) % words.length;
+    setTimeout(type, 1000);
+  }
 }
+type();
 
-.name + p {
-  color: #e91e63;
-}
-
-.web + p {
-  color: #2196f3;
-}
-
-.devops + p {
-  color: #4caf50;
-}
