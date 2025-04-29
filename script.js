@@ -17,9 +17,21 @@ function type() {
   // Change the header background color
   header.style.backgroundColor = current.bgColor;
 
-  // Change text color in all sections
+  // Change text color in header (for title)
+  header.style.color = current.textColor;
+
+  // Change the color of each section's subtitle (h2) and description (p)
   sections.forEach(section => {
-    section.style.color = current.textColor;
+    const h2 = section.querySelector("h2");
+    const p = section.querySelector("p");
+
+    if (h2) {
+      h2.style.color = current.textColor;  // Subtitle color
+    }
+
+    if (p) {
+      p.style.color = current.textColor;  // Paragraph text color
+    }
   });
 
   if (!isDeleting && j < current.text.length) {
