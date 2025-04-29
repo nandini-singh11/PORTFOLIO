@@ -1,71 +1,43 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f2f5;
-  color: #333;
-  margin: 40px;
-  transition: background-color 0.3s, color 0.3s;
+/* Colored typing words */
+.name {
+  color: #e91e63; /* Pink */
 }
 
+.web {
+  color: #2196f3; /* Blue */
+}
+
+.devops {
+  color: #4caf50; /* Green */
+}
+
+/* Update the header */
 header {
   background-color: #283593;
   color: white;
   text-align: center;
   padding: 30px;
   border-radius: 15px;
+  transition: background-color 0.3s ease;
 }
 
-section {
-  background-color: white;
-  margin-top: 30px;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+header p {
+  transition: color 0.3s ease;
 }
 
-h2 {
-  color: #3f51b5;
+/* Matching color changes for subtitles and descriptions */
+#about, #projects, #skills, #contact {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-a {
-  color: #3f51b5;
-  text-decoration: none;
+.name + p {
+  color: #e91e63;
 }
 
-a:hover {
-  text-decoration: underline;
+.web + p {
+  color: #2196f3;
 }
 
-/* Dark Mode */
-.dark-mode {
-  background-color: #121212;
-  color: #e0e0e0;
-}
-
-.dark-mode section {
-  background-color: #1e1e1e;
-}
-
-/* Buttons */
-#darkModeToggle, #backToTop {
-  position: fixed;
-  right: 20px;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  z-index: 1000;
-}
-
-#darkModeToggle {
-  top: 20px;
-  background-color: #333;
-  color: white;
-}
-
-#backToTop {
-  bottom: 20px;
-  background-color: #3f51b5;
-  color: white;
-  display: none;
+.devops + p {
+  color: #4caf50;
 }
