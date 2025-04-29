@@ -47,3 +47,17 @@ function type() {
   }
 }
 type();
+const darkToggle = document.getElementById('dark-toggle');
+
+darkToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
+const backToTopBtn = document.getElementById("back-to-top");
+
+window.addEventListener("scroll", () => {
+  backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+});
+
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
