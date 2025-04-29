@@ -1,26 +1,22 @@
-// Dark Mode Toggle
-document.getElementById("darkModeToggle").addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-});
-
-// Back to Top Button
-const backToTop = document.getElementById("backToTop");
-window.onscroll = function () {
-  backToTop.style.display = (window.scrollY > 300) ? "block" : "none";
-};
-backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// Typing Animation
 const typingText = document.getElementById("typing-text");
-const words = ["Nandini Singh", "Web Developer", "DevOps Learner"];
+const header = document.querySelector("header");
+const words = [
+  { text: "Nandini Singh", className: "name", bgColor: "#f8bbd0" },  // Light Pink
+  { text: "Web Developer", className: "web", bgColor: "#bbdefb" },    // Light Blue
+  { text: "DevOps Learner", className: "devops", bgColor: "#c8e6c9" } // Light Green
+];
+
 let i = 0, j = 0, isDeleting = false;
 
 function type() {
-  typingText.textContent = words[i].substring(0, j);
+  const current = words[i];
+  const visibleText = current.text.substring(0, j);
+  typingText.innerHTML = `<span class="${current.className}">${visibleText}</span>`;
 
-  if (!isDeleting && j < words[i].length) {
+  // Change the header background color
+  header.style.backgroundColor = current.bgColor;
+
+  if (!isDeleting && j < current.text.length) {
     j++;
     setTimeout(type, 100);
   } else if (isDeleting && j > 0) {
